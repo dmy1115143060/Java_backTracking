@@ -23,10 +23,10 @@ import java.util.List;
  /**
  * 解题思路：利用回溯法解决，利用List来存储每个序列，同样最后的得到的序列也存储到List中（不包含重复元素，但元素可以重复使用）
  */
-public class Combination_Sum_I_39
-{
-	public static void main(String[] args)
-	{
+public class Combination_Sum_I_39{
+	
+	public static void main(String[] args){
+		
 		int[] nums={2, 3, 6, 7};
 		int target = 7;
 		Arrays.sort(nums);
@@ -43,20 +43,21 @@ public class Combination_Sum_I_39
 	 * @param currentSeq:当前数字序列
 	 */
 	public static void getCombinationSumSeq(int[] nums, int target, int start, List<List<Integer>> targetSeq,
-											List<Integer> currentSeq)
-	{
-		for(int i = start; i < nums.length; i++ )
-		{
+						List<Integer> currentSeq){
+		
+		for(int i = start; i < nums.length; i++ ){
+			
 			//1.当前遍历到的数字和target相等，则将这个数字加入到当前序列currentSeq中，并将currentSeq加入到目标序列集合targetSeq中
-			if( nums[i] == target)
-			{
+			if( nums[i] == target){
+				
 				List<Integer> newCurrentSeq = new ArrayList<>(currentSeq);
 				newCurrentSeq.add(nums[i]);
 				targetSeq.add(newCurrentSeq);
 			}
+			
 			//2.当前数字比target小，此时将数字加入到currentSeq中，并且将target值更新为target-nums[i],继续遍历i号元素(由于元素可以重复使用)
-			else if(nums[i] < target)
-			{
+			else if(nums[i] < target){
+				
 				List<Integer> newCurrentSeq = new ArrayList<>(currentSeq);
 				newCurrentSeq.add(nums[i]);
 				getCombinationSumSeq(nums, target - nums[i], i, targetSeq, newCurrentSeq);
