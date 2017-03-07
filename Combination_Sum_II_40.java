@@ -25,10 +25,10 @@ import java.util.List;
  * @author 3
  *
  */
-public class Combination_Sum_II_40
-{
-	public static void main(String[] args)
-	{
+public class Combination_Sum_II_40{
+	
+	public static void main(String[] args){
+		
 		int[] nums={10, 1, 2, 7, 6, 1, 5};
 		int target = 8;
 		Arrays.sort(nums);
@@ -44,26 +44,28 @@ public class Combination_Sum_II_40
 	 * @param targetSeq:最终得到的满足target的目标序列的集合
 	 * @param currentSeq:当前数字序列
 	 */
-	public static void getCombinationSumSeq(int[] nums, int target, int start, List<List<Integer>> targetSeq, List<Integer> currentSeq)
-	{
+	public static void getCombinationSumSeq(int[] nums, int target, int start, List<List<Integer>> targetSeq, 
+						List<Integer> currentSeq){
 		for(int i = start; i < nums.length; i++)
 		{
 			//当连续若干数字相同时，需要排除重复的序列（序列可能包含重复元素）
 			if(i > start && nums[i] == nums[i-1])
 				continue;
+			
 			//1.当前遍历到的数字和target相等，则将这个数字加入到当前序列currentSeq中，并将currentSeq加入到目标序列集合targetSeq中
-			if(nums[i] == target)
-			{
+			if(nums[i] == target){
+				
 				//先获取当前除num[i]的前面的数字序列
 				List<Integer> newCurrentSeq = new ArrayList<>(currentSeq);
 				newCurrentSeq.add(nums[i]);
 				System.out.println(newCurrentSeq);
 				targetSeq.add(newCurrentSeq);
 			}
+			
 			//2.当前数字比target小，此时将数字加入到currentSeq中，并且将target值更新为target-nums[i],
 			//继续遍历i+1号元素(由于保证每个元素不能重复使用)
-			else if(nums[i] < target)
-			{
+			else if(nums[i] < target){
+				
 				List<Integer> newCurrentSeq = new ArrayList<>(currentSeq);
 				newCurrentSeq.add(nums[i]);
 				System.out.println(newCurrentSeq);
@@ -74,5 +76,5 @@ public class Combination_Sum_II_40
 			else
 				return;
 		}
-	}
-}
+	   }
+     }
