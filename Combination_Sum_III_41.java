@@ -21,10 +21,8 @@ import java.util.List;
  * 解题思路：利用回溯法解决，利用List来存储每个序列，同样最后的得到的序列也存储到List中.
  * 可以使用的元素取值范围为1-9（元素不可以重复使用），并且保证使用的元素个数为k个
  */
-public class Combination_Sum_III_41
-{
-	public static void main(String[] args)
-	{
+public class Combination_Sum_III_41{
+	public static void main(String[] args){
 		int[] nums={1, 2, 3, 4, 5, 6, 7, 8, 9};
 		int k = 3;
 		int n = 9;
@@ -43,14 +41,12 @@ public class Combination_Sum_III_41
 	 * @param targetSeq:最终得到的满足target的目标序列的集合
 	 * @param currentSeq:当前数字序列
 	 */
-	public static void getCombinationSumSeq(int[] nums, int k, int n, int start, List<List<Integer>> targetSeq, List<Integer> currentSeq)
-	{
-		for(int i = start; i < nums.length; i++)
-		{
+	public static void getCombinationSumSeq(int[] nums, int k, int n, int start, List<List<Integer>> targetSeq, 
+						List<Integer> currentSeq){
+		for(int i = start; i < nums.length; i++){
 			//1.当前遍历到的数字和target相等，则将这个数字加入到当前序列currentSeq中，
 			//若currentSeq的长度和k相等则加入到目标序列集合targetSeq中
-			if(nums[i] == n)
-			{
+			if(nums[i] == n){
 				List<Integer> newCurrentSeq = new ArrayList<>(currentSeq);
 				newCurrentSeq.add(nums[i]);
 				if(newCurrentSeq.size() == k)
@@ -58,8 +54,7 @@ public class Combination_Sum_III_41
 			}
 			//2.当前数字比target小，此时将数字加入到currentSeq中，并且将target值更新为target-nums[i],
 			//继续遍历i+1号元素(由于保证每个元素不能重复使用)
-			else if(nums[i] < n)
-			{
+			else if(nums[i] < n){
 				List<Integer> newCurrentSeq = new ArrayList<>(currentSeq);
 				newCurrentSeq.add(nums[i]);
 				getCombinationSumSeq(nums, k, n - nums[i], i + 1, targetSeq, newCurrentSeq);
@@ -69,6 +64,5 @@ public class Combination_Sum_III_41
 			else
 				return;
 		}
-
-	}
-}
+	   }
+     }
