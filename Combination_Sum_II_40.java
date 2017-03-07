@@ -16,7 +16,7 @@ import java.util.List;
  *	[
  * 		[1, 7],
  *		[1, 2, 5],
- *	    [2, 6],
+ *	        [2, 6],
  * 		[1, 1, 6]
  *	]
  */
@@ -46,8 +46,9 @@ public class Combination_Sum_II_40{
 	 */
 	public static void getCombinationSumSeq(int[] nums, int target, int start, List<List<Integer>> targetSeq, 
 						List<Integer> currentSeq){
-		for(int i = start; i < nums.length; i++)
-		{
+		
+		for(int i = start; i < nums.length; i++){
+			
 			//当连续若干数字相同时，需要排除重复的序列（序列可能包含重复元素）
 			if(i > start && nums[i] == nums[i-1])
 				continue;
