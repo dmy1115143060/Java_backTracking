@@ -17,10 +17,10 @@ import java.util.Scanner;
         [1,4],
     ]
  */
-public class Combinations_77
-{
-    public static void main(String[] args)
-    {
+public class Combinations_77{
+    
+    public static void main(String[] args){
+        
         Scanner input = new Scanner(System.in);
         String source = "";
         int n = input.nextInt();
@@ -30,16 +30,16 @@ public class Combinations_77
         backTrack(source, 0, k, new ArrayList<>());
     }
 
-    public static void backTrack(String source, int start, int k, List<Character> list)
-    {
-        for (int i = start; i < source.length(); i++)
-        {
-            if(list.size() < k)
-            {
+    public static void backTrack(String source, int start, int k, List<Character> list){
+       
+        for (int i = start; i < source.length(); i++){
+            
+            if(list.size() < k){
+                
                 List<Character> newList = new ArrayList<>(list);
                 newList.add(source.charAt(i));
-                if(newList.size() == k)
-                {
+                if(newList.size() == k){
+                    
                     for (char c : newList)
                         System.out.print(c);
                     System.out.println();
